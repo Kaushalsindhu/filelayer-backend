@@ -333,7 +333,6 @@ const getDeletedFiles = async (req, res) => {
     const deletedFiles = await File.find({
       owner: userId,
       isDeleted: true,
-      parentFolder: null
     }) .populate("owner", "name");
 
     const formatted = deletedFiles.map(file => ({
