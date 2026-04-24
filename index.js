@@ -34,7 +34,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-app.options("*", cors());
+
 app.use(express.json());
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/files/:fileId/collaborators', collabRoutes);
