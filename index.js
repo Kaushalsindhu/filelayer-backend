@@ -29,11 +29,12 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: "https://filelayer.vercel.app",
-    credentials: true,              // allow cookies / auth headers
+    // credentials: true,              // allow cookies / auth headers
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+app.options("*", cors());
 app.use(express.json());
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/files/:fileId/collaborators', collabRoutes);
